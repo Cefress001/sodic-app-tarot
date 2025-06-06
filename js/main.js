@@ -1,6 +1,7 @@
 
 import { GoogleGenAI } from '@google/genai';
 import { TAROT_DECK, SPREAD_DEFINITIONS, HA_MEFARESH_SYSTEM_PROMPT_HEADER, INTERPRETATION_MODULE_TITLES, DEFAULT_KAVANAH, SODIC_GOLD } from './constants.js';
+import { linkGlossaryTerms, setupGlossaryPopups } from './glossary.js';
 
 // --- Configuration ---
 const API_KEY = globalThis.process?.env?.API_KEY || globalThis.SODIC_MIRROR_API_KEY;
@@ -124,6 +125,7 @@ if (document.body.classList.contains('draw-page')) {
     const spreadButtonsContainer = document.getElementById('spread-buttons-container');
     const drawCardsButton = document.getElementById('draw-cards-button');
     const animatedGlyphBackground = document.getElementById('animated-glyph-background');
+    const layoutSelect = document.getElementById('layout-select');
 
     let currentSpreadMode = SPREAD_DEFINITIONS.SingleCard.mode; // Default
 
@@ -137,9 +139,12 @@ if (document.body.classList.contains('draw-page')) {
             });
         }
 
+        if (layoutSelect) {
+            layoutSelect.value = currentSpreadMode;
+        }
 
         if (spreadButtonsContainer) {
-            spreadButtonsContainer.innerHTML = ''; 
+            spreadButtonsContainer.innerHTML = '';
             Object.values(SPREAD_DEFINITIONS).forEach(def => {
                 const button = document.createElement('button');
                 button.classList.add('spread-button');
@@ -148,6 +153,16 @@ if (document.body.classList.contains('draw-page')) {
                 button.dataset.mode = def.mode;
                 button.onclick = () => selectSpreadMode(def.mode);
                 spreadButtonsContainer.appendChild(button);
+            });
+            selectSpreadMode(currentSpreadMode); // highlight default
+        }
+
+        if (layoutSelect) {
+            layoutSelect.addEventListener('change', () => {
+                const val = layoutSelect.value;
+                if (SPREAD_DEFINITIONS[val]) {
+                    selectSpreadMode(val);
+                }
             });
         }
 
@@ -474,9 +489,12 @@ if (document.body.classList.contains('interpretation-page')) {
                     <button class="speaker-button" data-content-id="${contentId}" title="Read Aloud">
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px; height:20px;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></svg>
                     </button>
+                    ${key === 'Assiyah' ? '<button class="accept-action-button" data-content-id="' + contentId + '">Accept this action</button>' : ''}
                 </div>
             `;
             interpretationAccordionContainer.appendChild(accordionItem);
+            const contentEl = accordionItem.querySelector('pre');
+            linkGlossaryTerms(contentEl);
         });
 
         if (parsedModules["RawInterpretation"]) { // Handle raw display
@@ -491,6 +509,9 @@ if (document.body.classList.contains('interpretation-page')) {
 
         setupAccordion();
         setupSpeakerButtons();
+        setupGlossaryPopups();
+        setupActionButtons();
+        loadAcceptedActions();
     }
 
     function setupAccordion() {
@@ -608,6 +629,34 @@ if (document.body.classList.contains('interpretation-page')) {
             // ... add content ...
             // doc.save("SodicMirrorReading.pdf");
         };
+    }
+
+    function setupActionButtons() {
+        const buttons = interpretationAccordionContainer.querySelectorAll('.accept-action-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const contentId = button.dataset.contentId;
+                const text = document.getElementById(contentId).querySelector('pre').textContent;
+                const actions = JSON.parse(localStorage.getItem('sodicMirrorActions') || '[]');
+                actions.push({ text, timestamp: Date.now() });
+                localStorage.setItem('sodicMirrorActions', JSON.stringify(actions));
+                loadAcceptedActions();
+                button.disabled = true;
+                button.textContent = 'Accepted';
+            });
+        });
+    }
+
+    function loadAcceptedActions() {
+        const list = document.getElementById('accepted-actions');
+        if (!list) return;
+        list.innerHTML = '';
+        const actions = JSON.parse(localStorage.getItem('sodicMirrorActions') || '[]');
+        actions.forEach(act => {
+            const li = document.createElement('li');
+            li.textContent = act.text;
+            list.appendChild(li);
+        });
     }
 
     // Stop speech synthesis if user navigates away
