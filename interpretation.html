@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SODIC MIRROR™ — Sacred Interpretation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Inter:wght@300;400;500;700&family=Cinzel:wght@400;700;900&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai"
+      }
+    }
+    </script>
+</head>
+<body class="interpretation-page">
+    <div id="app-container" class="animate-fadeIn">
+        <header class="app-header app-header-minimal">
+            <div class="logo-container-minimal">
+                <a href="index.html" class="logo-link-minimal">
+                    <img src="images/glyphs/sodic-mirror-logo-gold-small.svg" alt="Sodic Mirror Small Logo" class="logo-image-small">
+                    <span class="app-title-minimal">SODIC MIRROR™</span>
+                </a>
+            </div>
+             <div class="header-actions">
+                <a href="draw.html" class="header-link font-alef">New Reading</a>
+                <button id="download-pdf-button" class="header-button font-alef" title="Download Tikun Summary (Coming Soon)" disabled>
+                    <img src="images/glyphs/download-icon.svg" alt="Download" class="button-icon"/> Summary
+                </button>
+            </div>
+        </header>
+
+        <main class="page-content interpretation-content">
+            <div id="loading-interpretation-message" class="loading-message-fullpage">
+                <div class="spinner"></div>
+                <p class="font-cardo">HaMefaresh HaPenimi is contemplating the patterns of light... Please allow a few moments for wisdom to unfold.</p>
+            </div>
+
+            <div id="interpretation-layout" style="display:none;">
+                <section id="drawn-cards-display-section" class="section-panel animate-fadeIn">
+                    <h2 class="section-main-title font-cinzel">Your Sacred Reflection</h2>
+                    <div id="drawn-cards-container" class="drawn-cards-area">
+                        <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </section>
+
+                <div class="interpretation-main-area">
+                    <section id="interpretation-modules-section" class="section-panel parchment-card animate-fadeIn" style="animation-delay: 0.2s;">
+                        <div class="interpretation-header">
+                             <h2 class="section-main-title font-cinzel">HaMefaresh HaPenimi Reveals...</h2>
+                             <div id="reading-context-summary" class="reading-summary font-alef">
+                                <!-- Reading context (Kavanah, Time) will be inserted here -->
+                             </div>
+                        </div>
+                        <div id="interpretation-accordion-container" class="interpretation-accordion">
+                            <!-- Accordion items will be dynamically inserted here -->
+                        </div>
+                        <div class="interpretation-final-note">
+                            <p class="font-cardo italic">Reflect deeply upon these words. May they guide your path to alignment and Teshuvah (Return).</p>
+                        </div>
+                    </section>
+
+                    <aside id="tree-of-life-sidebar" class="section-panel tree-of-life-container animate-fadeIn" style="animation-delay: 0.4s;">
+                        <h3 class="panel-title font-cardo">Tree of Life Resonance</h3>
+                        <div id="tree-of-life-svg-container" class="tree-svg-wrapper">
+                            <!-- SVG for Tree of Life will be loaded here by main.js -->
+                            <p class="tree-placeholder">Tree of Life loading...</p>
+                        </div>
+                        <p class="panel-subtitle font-alef tree-legend-intro">Highlighted Sefirot and Paths indicate primary energetic alignments from your reading.</p>
+                        <div id="tree-legend" class="tree-legend">
+                            <!-- Legend could be populated here if needed -->
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <div id="error-display-section" class="section-panel error-panel" style="display:none;">
+                <h3 class="panel-title font-cardo">A Moment of Stillness</h3>
+                <p id="error-message-content" class="font-inter"></p>
+                <button id="retry-interpretation-button" class="cta-button secondary-cta" style="display:none;">Try Again</button>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p class="footer-text-primary">This is not divination. This is Tikun.</p>
+            <img src="images/glyphs/menorah-glyph.svg" alt="Sacred Glyph" class="footer-glyph">
+            <p class="footer-text-secondary">© <span id="currentYear"></span> SODIC MIRROR™. All sacred rights reserved.</p>
+        </footer>
+    </div>
+    <script src="js/constants.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

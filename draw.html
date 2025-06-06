@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SODIC MIRROR™ — Sacred Draw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Inter:wght@300;400;500;700&family=Cinzel:wght@400;700;900&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai"
+      }
+    }
+    </script>
+</head>
+<body class="draw-page">
+    <div id="app-container" class="animate-fadeIn">
+        <header class="app-header app-header-minimal">
+             <div class="logo-container-minimal">
+                <a href="index.html" class="logo-link-minimal">
+                    <img src="images/glyphs/sodic-mirror-logo-gold-small.svg" alt="Sodic Mirror Small Logo" class="logo-image-small">
+                    <span class="app-title-minimal">SODIC MIRROR™</span>
+                </a>
+            </div>
+        </header>
+
+        <main class="page-content draw-content">
+            <div id="animated-glyph-background"></div>
+
+            <section id="kavanah-section" class="section-panel parchment-card animate-fadeIn">
+                <label for="kavanah-input" class="panel-title font-cardo">Set Your Intention (Kavanah)</label>
+                <textarea id="kavanah-input" class="kavanah-textarea" rows="4" placeholder="What is your heart truly asking? Speak from the soul."></textarea>
+                <p class="panel-subtitle font-alef">The clearer the Kavanah, the clearer the reflection.</p>
+            </section>
+
+            <section id="spread-selection-section" class="section-panel parchment-card animate-fadeIn" style="animation-delay: 0.2s;">
+                <h3 class="panel-title font-cardo">Choose Your Spread</h3>
+                <div id="spread-buttons-container" class="spread-buttons">
+                    <!-- Spread buttons will be dynamically inserted here by main.js -->
+                </div>
+                <div class="dropdown-container">
+                    <label for="layout-select" class="dropdown-label font-alef">Sacred Layouts:</label>
+                    <select id="layout-select" class="dropdown-select">
+                        <option value="TikunPathway">Tikun Pathway (Soon)</option>
+                        <option value="ShevirahMap">Shevirah Map (Soon)</option>
+                    </select>
+                </div>
+            </section>
+
+            <div class="draw-button-container animate-fadeIn" style="animation-delay: 0.4s;">
+                <button id="draw-cards-button" class="cta-button draw-action-button">
+                    <span class="draw-button-icon">⬇️</span> Draw Sacred Cards
+                </button>
+            </div>
+        </main>
+
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p id="loading-text">Preparing the sacred space...</p>
+        </div>
+
+        <footer class="app-footer">
+            <p class="footer-text-primary">This is not divination. This is Tikun.</p>
+            <img src="images/glyphs/menorah-glyph.svg" alt="Sacred Glyph" class="footer-glyph">
+            <p class="footer-text-secondary">© <span id="currentYear"></span> SODIC MIRROR™. All sacred rights reserved.</p>
+        </footer>
+    </div>
+    <script src="js/constants.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
