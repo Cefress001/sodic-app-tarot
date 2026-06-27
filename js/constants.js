@@ -65,7 +65,17 @@ export const SPREAD_DEFINITIONS = {
       { name: "Guidance / Path", meaning: "Shows the potential path forward or the Tikkun (rectification) needed." }
     ]
   }
-  // Future spreads: Tikun Pathway, Shevirah Map
+  ,
+  TikunPathway: {
+    mode: 'TikunPathway',
+    displayName: "Tikun Pathway (Chesed→Gevurah→Tiferet)",
+    positions: [
+      { name: "Chesed", meaning: "Lovingkindness: where mercy flows." },
+      { name: "Gevurah", meaning: "Discipline: where judgment refines." },
+      { name: "Tiferet", meaning: "Harmony: the balanced heart of the path." }
+    ]
+  }
+  // Future spreads: Shevirah Map
 };
 
 // --- AI System Prompt ---

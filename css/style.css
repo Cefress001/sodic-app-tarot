@@ -819,3 +819,45 @@ html { scrollbar-color: rgba(29, 29, 63, 0.6) rgba(212, 175, 55, 0.1); scrollbar
     white-space: nowrap;
     border-width: 0;
 }
+
+/* Glossary term styling */
+.glossary-term {
+    border-bottom: 1px dashed var(--sodic-gold);
+    cursor: help;
+}
+
+.glossary-tooltip {
+    position: absolute;
+    background: var(--sodic-light-sand);
+    color: var(--sodic-text-primary);
+    padding: 6px 8px;
+    border: 1px solid var(--sodic-gold);
+    border-radius: 4px;
+    font-family: var(--font-sacred);
+    font-size: 0.8rem;
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.tikkun-actions {
+    margin-top: 20px;
+}
+.accepted-actions-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-family: var(--font-sacred);
+}
+
+.accept-action-button {
+    margin-top: 8px;
+    background: var(--sodic-gold);
+    color: var(--sodic-text-on-dark);
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-family: var(--font-sacred);
+    border-radius: 4px;
+}
+.accept-action-button:disabled {
+    opacity: 0.6;
+}

@@ -53,7 +53,17 @@ export const SPREAD_DEFINITIONS = {
       { name: "Potential/Repair", meaning: "Shows the potential outcome or the Tikkun (rectification) needed." }
     ]
   }
-  // ... Future spreads: Tikun Pathway, Ohr/Kli Diagnostic
+  ,
+  'TikunPathway': {
+    mode: 'TikunPathway',
+    displayName: "Tikun Pathway (Chesed→Gevurah→Tiferet)",
+    positions: [
+      { name: 'Chesed', meaning: 'Lovingkindness: where mercy flows.' },
+      { name: 'Gevurah', meaning: 'Discipline: where judgment refines.' },
+      { name: 'Tiferet', meaning: 'Harmony: the balanced heart of the path.' }
+    ]
+  }
+  // ... Future spreads: Ohr/Kli Diagnostic
 };
 
 export const HA_MEFARESH_SYSTEM_PROMPT_HEADER = `

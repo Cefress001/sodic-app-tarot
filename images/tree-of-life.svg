@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" id="tree-of-life-svg">
+  <g id="sefirah-kether"><circle class="sefirah-shape" cx="200" cy="40" r="20"/><text class="sefirah-text" x="200" y="45" font-size="12" text-anchor="middle">Kether</text></g>
+  <g id="sefirah-chochmah"><circle class="sefirah-shape" cx="120" cy="120" r="20"/><text class="sefirah-text" x="120" y="125" font-size="12" text-anchor="middle">Chochmah</text></g>
+  <g id="sefirah-binah"><circle class="sefirah-shape" cx="280" cy="120" r="20"/><text class="sefirah-text" x="280" y="125" font-size="12" text-anchor="middle">Binah</text></g>
+  <g id="sefirah-chesed"><circle class="sefirah-shape" cx="120" cy="220" r="20"/><text class="sefirah-text" x="120" y="225" font-size="12" text-anchor="middle">Chesed</text></g>
+  <g id="sefirah-gevurah"><circle class="sefirah-shape" cx="280" cy="220" r="20"/><text class="sefirah-text" x="280" y="225" font-size="12" text-anchor="middle">Gevurah</text></g>
+  <g id="sefirah-tiferet"><circle class="sefirah-shape" cx="200" cy="300" r="20"/><text class="sefirah-text" x="200" y="305" font-size="12" text-anchor="middle">Tiferet</text></g>
+  <g id="sefirah-netzach"><circle class="sefirah-shape" cx="120" cy="380" r="20"/><text class="sefirah-text" x="120" y="385" font-size="12" text-anchor="middle">Netzach</text></g>
+  <g id="sefirah-hod"><circle class="sefirah-shape" cx="280" cy="380" r="20"/><text class="sefirah-text" x="280" y="385" font-size="12" text-anchor="middle">Hod</text></g>
+  <g id="sefirah-yesod"><circle class="sefirah-shape" cx="200" cy="460" r="20"/><text class="sefirah-text" x="200" y="465" font-size="12" text-anchor="middle">Yesod</text></g>
+  <g id="sefirah-malchut"><circle class="sefirah-shape" cx="200" cy="540" r="20"/><text class="sefirah-text" x="200" y="545" font-size="12" text-anchor="middle">Malchut</text></g>
+
+  <!-- Simple connecting lines with path ids for highlighting -->
+  <line id="path-aleph" class="path-line" x1="200" y1="40" x2="120" y2="120" stroke="black" />
+  <line id="path-beth" class="path-line" x1="200" y1="40" x2="280" y2="120" stroke="black" />
+  <line id="path-gimel" class="path-line" x1="200" y1="40" x2="200" y2="300" stroke="black" />
+  <line id="path-dalet" class="path-line" x1="120" y1="120" x2="280" y2="120" stroke="black" />
+  <line id="path-heh" class="path-line" x1="120" y1="120" x2="120" y2="220" stroke="black" />
+  <line id="path-vav" class="path-line" x1="280" y1="120" x2="280" y2="220" stroke="black" />
+  <line id="path-zayin" class="path-line" x1="120" y1="220" x2="280" y2="220" stroke="black" />
+  <line id="path-chet" class="path-line" x1="120" y1="220" x2="200" y2="300" stroke="black" />
+  <line id="path-tet" class="path-line" x1="280" y1="220" x2="200" y2="300" stroke="black" />
+  <line id="path-yud" class="path-line" x1="120" y1="220" x2="120" y2="380" stroke="black" />
+  <line id="path-kaph" class="path-line" x1="280" y1="220" x2="280" y2="380" stroke="black" />
+  <line id="path-lamed" class="path-line" x1="120" y1="380" x2="280" y2="380" stroke="black" />
+  <line id="path-mem" class="path-line" x1="120" y1="380" x2="200" y2="460" stroke="black" />
+  <line id="path-nun" class="path-line" x1="280" y1="380" x2="200" y2="460" stroke="black" />
+  <line id="path-samech" class="path-line" x1="200" y1="300" x2="200" y2="460" stroke="black" />
+  <line id="path-ayin" class="path-line" x1="120" y1="380" x2="200" y2="540" stroke="black" />
+  <line id="path-peh" class="path-line" x1="280" y1="380" x2="200" y2="540" stroke="black" />
+  <line id="path-tzaddi" class="path-line" x1="200" y1="460" x2="200" y2="540" stroke="black" />
+  <line id="path-qoph" class="path-line" x1="120" y1="120" x2="200" y2="540" stroke="black" />
+  <line id="path-resh" class="path-line" x1="280" y1="120" x2="200" y2="540" stroke="black" />
+  <line id="path-shin" class="path-line" x1="200" y1="40" x2="200" y2="540" stroke="black" />
+  <line id="path-tav" class="path-line" x1="120" y1="120" x2="280" y2="540" stroke="black" />
+</svg>
